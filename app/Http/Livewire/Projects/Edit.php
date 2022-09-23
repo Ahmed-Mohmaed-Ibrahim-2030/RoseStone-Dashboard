@@ -44,12 +44,12 @@ class Edit extends Component
 
     public function update(){
         $this->validate([
-                'name_en'=>['required','string','min:3'],
+                'name_en'=>['string','min:3'],
                 'name_ar'=>['string','min:3'],
-                'details_en'=>['required','string','min:20'],
+                'details_en'=>['string','min:20'],
                 'details_ar'=>['string','min:20'],
-                'code'=>['required','min:8'],
-                'image' => 'required|image|mimes:jpeg,png,jpg,gif,svg|max:10240',
+                'code'=>['min:8'],
+                'image' => isset($this->image)?'image|mimes:jpeg,png,jpg,gif,svg|max:10240':"",
 
 
             ]

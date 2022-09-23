@@ -35,6 +35,7 @@ class Products extends Component
         $this->showAddImage=false;
         $this->showEditProduct=!$this->showEditProduct;
         $this->showCreateProduct=false;
+
     }
 
     public function render()
@@ -54,6 +55,7 @@ class Products extends Component
             $this->emit('getProduct',$product);
             $this->showCreateProduct=false;
             $this->showEditProduct=!$this->showEditProduct;
+            $this->showAddImage=false;
         }
         else{
 

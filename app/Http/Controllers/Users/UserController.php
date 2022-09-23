@@ -177,9 +177,9 @@ class UserController extends Controller
      */
     public function destroy(User $user)
     {
-        if(File::exists('assets/images/users/admins/'.$admin->image))
+        if(File::exists('assets/images/users/admins/'.$user->image))
         {
-            unlink('assets/images/users/admins/'.$admin->image);
+            unlink('assets/images/users/admins/'.$user->image);
         }
 
         $user->delete();
@@ -189,21 +189,7 @@ class UserController extends Controller
     }
 
 
-    public static function  userInfo ()
-    {
-        switch (Auth::user()->role) {
-
-            case 'instructor':
-                  return User::find(Auth::id())->join('instructors','users.id','=','instructors.account_id')->select('users.*','instructors.*')->first();
-            case 'parent':
-                return User::find(Auth::id())->join('parents','users.id','=','parents.account_id')->select('users.*','parents.*')->first();
-            case 'student':
-                return User::find(Auth::id())->join('students','users.id','=','students.account_id')->select('users.*','students.*')->first();
-            default:
-                return   User::find(Auth::id())->join('admins','users.id','=','admins.account_id')->select('users.*','admins.*')->first();
 
 
-}
 
-    }
 }

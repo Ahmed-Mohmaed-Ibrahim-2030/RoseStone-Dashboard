@@ -24,11 +24,11 @@ class Projects extends Component
 
         public function toggle_create(){
         $this->showCreateProject=!$this->showCreateProject;
-        $this->showEditProject=false;
+        $this->showEditProject=false;$this->showAddImage=false;
     }
         public function toggle_edit(){
         $this->showEditProject=!$this->showEditProject;
-        $this->showCreateProject=false;
+        $this->showCreateProject=false;$this->showAddImage=false;
     }
     public function render()
     {
@@ -47,6 +47,7 @@ class Projects extends Component
 $this->emit('getProject',$project);
 $this->showCreateProject=false;
 $this->showEditProject=!$this->showEditProject;
+$this->showAddImage=false;
     }
     else{
 

@@ -284,7 +284,7 @@ if($updateAdmin){
 return  redirect()->route('profile')->with('success','password updated successfully');
 }
 else{
-    return  redirect()->route('profile')->with('danger ','something went wrong');
+    return  redirect()->route('profile')->with('danger','something went wrong');
 }
 }
 }

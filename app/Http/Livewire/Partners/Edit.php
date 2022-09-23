@@ -38,13 +38,13 @@ class Edit extends Component
 
     public function update(){
         $this->validate([
-                'name' => ['required', 'string', 'max:255'],
+                'name' => [ 'string', 'max:255'],
 //
-            'email' => 'required|string|email|max:255|unique:partners,email,'.$this->partner_id,
+            'email' => 'string|email|max:255|unique:partners,email,'.$this->partner_id,
 
                 'phone' => ['string', 'max:11','unique:partners,phone,'.$this->partner_id],
 
-                'image' => 'image|mimes:jpeg,png,jpg,gif,svg|max:2048',
+                'image' => isset($this->image)?'image|mimes:jpeg,png,jpg,gif,svg|max:10240':"",
 
             ]
 

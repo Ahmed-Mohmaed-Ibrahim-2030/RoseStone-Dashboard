@@ -4,7 +4,7 @@
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <title>@yield('title')</title>
-
+    <link rel="shortcut" href="{{asset('assets/images/logo/logo.png')}}" type="image/x-icon" />
     <!-- Google Font: Source Sans Pro -->
     <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Source+Sans+Pro:300,400,400i,700&display=fallback">
     <!-- Font Awesome -->
@@ -37,7 +37,7 @@
 
     <!-- Preloader -->
     <div class="preloader flex-column justify-content-center align-items-center">
-        <img class="animation__shake img-circle" src="{{asset('assets/images/logo/logo.png')}}"  alt="E-L-Platform" height="200" width="200">
+        <img class="animation__shake img-circle" src="{{asset('assets/images/logo/logo.png')}}"  alt="Rose Stone " height="200" width="200">
     </div>
 
     <!-- Navbar -->
@@ -81,7 +81,7 @@
         </section>
     </div>
     <footer class="main-footer">
-        <strong>Copyright &copy; by team 4 <a href="https://adminlte.io">RoseStone </a>.</strong>
+        <strong>Copyright &copy; by AEM Web Tech 4 <a href="https://adminlte.io">RoseStone </a>.</strong>
         All rights reserved.
         <div class="float-right d-none d-sm-inline-block">
             <b>Version</b> 1.0.0
@@ -101,19 +101,7 @@
 <script>
     $('.delete').click(function (e) {
         e.preventDefault();
-        // var n =Noty({
-        //     text:'Are You Sure You Sure "want to delete" ',
-        //     type:'warning',
-        //     killer:true,
-        //     buttons:[
-        //         Noty.button('yes','btn btn-danger',function () {
-        //             that.closest('form').submit();
-        //         }),
-        //         Noty.button('no','btn btn-success',function () {
-        //            n.close();
-        //         }),
-        //     ]
-        // });
+
 let confirm=window.confirm('Are you sure you want to delete');
 
 if (confirm)

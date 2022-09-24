@@ -37,7 +37,7 @@ class Create extends Component
             'name_ar'=>['string','min:3'],
             'details_en'=>['required','string','min:20'],
             'details_ar'=>['string','min:20'],
-            'code'=>['required','min:8'],
+            'code'=>['required','min:8','unique:projects,code'],
                 'image' => 'required|image|mimes:jpeg,png,jpg,gif,svg|max:10240',
 
                 'category_id'=>['required']

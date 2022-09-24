@@ -66,6 +66,10 @@ List Categories
 
 
 </div>
+
+                <div class="my-3 float-right ">
+                    {{$categories->links()}}
+                </div>
             @else
                 <h2>
                     No Categories Founded

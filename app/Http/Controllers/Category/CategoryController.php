@@ -39,7 +39,7 @@ class CategoryController extends Controller
             return $query->when($request->search,function($q)use ($request){
                 return $q->where('name_en','like','%'.$request->search.'%');
             });
-        })->get();
+        })->paginate(4);
 
 
 
@@ -84,7 +84,7 @@ public function createSubCategory(Category $category){
 
         $request->validate( [
             'name_ar'=>'required|min:3',
-            'name_en'=>'required|min:3',
+            'name_en'=>'required|min:3|unique:categories,name_en',
             'image' => 'required|image|mimes:jpg,jpeg,png,gif,svg',
         ]);
 //        $image = $request->image;
@@ -172,7 +172,7 @@ public function createSubCategory(Category $category){
     {
         //
         $request->validate( [
-            'name_en'=>'min:3',
+            'name_en'=>'min:3|unique:categories,name_en,'.$Category->id,
 //            'slug'=>'required|min:5|unique:categories,slug,'.$Category->id,
 
             'image' => 'image|mimes:jpg,jpeg,png,gif,svg|max:10240',

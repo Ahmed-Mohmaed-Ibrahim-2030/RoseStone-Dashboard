@@ -13,23 +13,23 @@ return new class extends Migration
      */
     public function up()
     {
-        Schema::create('contacts', function (Blueprint $table) { 
+        Schema::create('contacts', function (Blueprint $table) {
 
-            $table->id(); 
+            $table->id();
 
-            $table->string('name'); 
+            $table->string('name');
 
-            $table->string('email'); 
+            $table->string('email');
 
-            $table->string('phone'); 
+            $table->string('phone')->nullable(true); 
 
-            $table->string('subject'); 
+            $table->string('subject');
 
-            $table->text('message'); 
+            $table->text('message');
 
-            $table->timestamps(); 
+            $table->timestamps();
 
-        }); 
+        });
     }
 
     /**

@@ -47,7 +47,7 @@ class Edit extends Component
                 'name_ar'=>['string','min:3'],
                 'details_en'=>['string','min:20'],
                 'details_ar'=>['string','min:20'],
-                'code'=>['min:8'],
+                'code'=>['min:8','unique:products,code,'.$this->product_id],
                 'image' => isset($this->image)?'image|mimes:jpeg,png,jpg,gif,svg|max:10240':"",
                 'price'=>['min:1'],
 

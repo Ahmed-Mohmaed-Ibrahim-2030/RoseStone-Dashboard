@@ -29,24 +29,24 @@
             <div class="row">
                 <div class="col-sm-4 border-right">
                     <div class="description-block">
-                        <h5 class="description-header">3,200</h5>
-                        <span class="description-text">SALES</span>
+                        <h5 class="description-header">ُEmail</h5>
+                        <span class="description-text">{{$user->email}}</span>
                     </div>
                     <!-- /.description-block -->
                 </div>
                 <!-- /.col -->
                 <div class="col-sm-4 border-right">
                     <div class="description-block">
-                        <h5 class="description-header">13,000</h5>
-                        <span class="description-text">FOLLOWERS</span>
+                        <h5 class="description-header">Username</h5>
+                        <span class="description-text">{{$user->username}}</span>
                     </div>
                     <!-- /.description-block -->
                 </div>
                 <!-- /.col -->
                 <div class="col-sm-4">
                     <div class="description-block">
-                        <h5 class="description-header">35</h5>
-                        <span class="description-text">PRODUCTS</span>
+                        <h5 class="description-header">Phone</h5>
+                        <span class="description-text">{{$user->phone}}</span>
                     </div>
                     <!-- /.description-block -->
                 </div>
@@ -57,13 +57,15 @@
         <div class="text-center py-3 bg-dark">
             <a href="{{route('users.edit',['user'=>$user->id])}}" class="btn btn-outline-warning {{Auth::user()->hasPermission('users-update')?'':'disabled'}} " ><i class="fa fa-edit"> </i> Edit</a>
 
+              @if(!$user->hasRole('super_admin'))
             <form method="post" action="{{route('users.destroy',['user'=>$user])}}" style="display:inline-block">
                 {{csrf_field()}}
                 {{method_field('delete')}}
 
-                <button type="submit"  class="btn btn-outline-danger " {{Auth::user()->hasPermission('users-delete')?'':'disabled'}}><i class="fa fa-trash"></i>Delete</button>
+                    <button type="submit"  class="btn btn-outline-danger " {{Auth::user()->hasPermission('users-delete')?'':'disabled'}}><i class="fa fa-trash"></i>Delete</button>
             </form>
-            <a href="{{route('edit-reset',['admin'=>$user->id])}}" class="btn btn-outline-secondary">reset password</a>
+            @endif
+            <a href="{{route('edit-reset',['admin'=>$user->id])}}" class="btn delete btn-outline-secondary">reset password</a>
             <!-- /.row -->
         </div>
     </div>

@@ -8,6 +8,7 @@ use App\Mail\NotifyMail;
 
 use App\Models\User;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\File;
 use Illuminate\Support\Facades\Hash;
 use Illuminate\Support\Facades\Mail;
@@ -245,10 +246,19 @@ class AdminController extends Controller
             unlink('assets/images/users/admins/'.$admin->image);
         }
 
-        $admin->delete();
+ if(   $admin->delete())
+ {    Mail::to($admin->email)->send(new NotifyMail(['title'=>'Your Rose Stone Account Deleted ','subject'=>'Sorry You Left Us']));
+
+if(Auth::id()===$admin->id) {
+    return redirect()->route('logout');
+}
+
 //        User::find($admin)->delete();
 
         return back()->with('success','delete successfully  successfully');
+ }
+        return back()->with('warning','something went wrong');
+
     }
 public function editPassword(Request $request, User $admin){
 

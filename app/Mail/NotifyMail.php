@@ -32,8 +32,8 @@ class NotifyMail extends Mailable
     public function build()
     {
         //sdassnaabmbelsao
-        return $this->from('rosestonespporttm@gmail.com', 'Rosestone Support Team ')
-            ->subject('Order Shipped')
+        return $this->from('rosestonespporttm@gmail.com', 'Rose Stone Support Team ')
+//            ->subject('Admin Authentication')
             ->view('Mails.adminInfo');
     }
 }

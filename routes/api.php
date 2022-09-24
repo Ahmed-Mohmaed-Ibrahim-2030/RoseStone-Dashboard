@@ -132,3 +132,4 @@ Route::resource('blogs',BlogController::class);
 Route::resource('companies',CompanyController::class);
 Route::get('productsByCat/{category}',[ProductController::class,'getProductsByCat']);
 Route::get('projectsByCat/{category}',[ProjectController::class,'getProjectsByCat']);
+

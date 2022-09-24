@@ -14,7 +14,7 @@ class Category extends Model
     protected $fillable=[
         'name_en',
         'name_ar',
-'image',
+        'image',
         'status',
 
 

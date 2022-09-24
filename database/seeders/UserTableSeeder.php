@@ -7,6 +7,7 @@ use App\Models\Admin;
 use Illuminate\Database\Console\Seeds\WithoutModelEvents;
 use Illuminate\Database\Seeder;
 use Illuminate\Support\Facades\Mail;
+use Illuminate\Support\Str;
 
 class UserTableSeeder extends Seeder
 {
@@ -17,7 +18,7 @@ class UserTableSeeder extends Seeder
      */
     public function run()
     {
-        $password=rand(10000000,99999999);
+        $password=Str::random(10);
         $first_name='super ';
         $last_name='admin ';
         $email='ahmedmoibrahim22@gmail.com';
@@ -32,7 +33,7 @@ class UserTableSeeder extends Seeder
                 'password'=>bcrypt($password),
                 'username'=>'80020197',
                 'role'=>$role,
-                 'phone'=>$role,
+                 'phone'=>$phone,
 
             ]
         );

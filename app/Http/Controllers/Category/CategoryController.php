@@ -111,33 +111,9 @@ public function createSubCategory(Category $category){
            'image'=>$filename??"default.png",
         ]);
 
-    return redirect()->route('Category.index');
+    return redirect()->route('Category.index')->with('success','category created successfully');
     }
-    public function storeSubCategory(Category $category,Request $request){
-        $request->validate( [
-            'name_en'=>'required|min:3',
 
-            'image' => 'required|image|mimes:jpg,jpeg,png,gif,svg|max:2048',
-        ]);
-        if($request->hasFile('image')){
-//            $imageName = time().'.'.$request->image->extension();
-//            $request->image->move(public_path('assets/dist/img/SubCategory-images/'), $imageName);
-
-            if(isset($category->image)&&File::exists('assets/images/categories/'.$category->image))
-            {
-                unlink('assets/images/categories/'.$category->image);
-            }
-            $filename = Str::slug(time().rand(1000,9999)).'.'.$request->image->getClientOriginalExtension();
-            $path=public_path('/assets/images/categories/'.$filename);
-            \Intervention\Image\ImageManagerStatic::make($request->image->getRealPath())->save($path,100);
-        }
-        $category->subcategory()->create([
-            'name_en'=>$request->name_en,
-            'name_ar'=>$request->name_ar,
-
-            'image'=>$filename,
-        ]);
-    }
     /**
      * Display the specified resource.
      *
@@ -173,21 +149,12 @@ public function createSubCategory(Category $category){
         //
         $request->validate( [
             'name_en'=>'min:3|unique:categories,name_en,'.$Category->id,
-//            'slug'=>'required|min:5|unique:categories,slug,'.$Category->id,
+
 
             'image' => 'image|mimes:jpg,jpeg,png,gif,svg|max:10240',
         ]);
         $request_data=$request->except('image');
-//        $image = $request->image;
-//        $input['file'] = time().'.'.$image->getClientOriginalExtension();
-//
-//        $destinationPath = public_path('/assets/dist/img/Category-images');
-//        $imgFile = Image::make($image->getRealPath());
-//        $imgFile->resize(150, 150, function ($constraint) {
-//            $constraint->aspectRatio();
-//        })->save($destinationPath.'/'.$input['file']);
-//        $destinationPath = public_path('/uploads');
-//        $image->move($destinationPath, $input['file']);
+
         if($request->hasFile('image')){
 
             if(isset($category->image)&&File::exists('assets/images/categories/'.$category->image))
@@ -203,7 +170,7 @@ $request_data['image']=$filename;
         }
         $Category->update($request_data);
 
-        return redirect()->route('Category.edit',$Category);
+        return redirect()->route('Category.index')->with('success','category updated successfully');
     }
 
     /**
@@ -214,20 +181,16 @@ $request_data['image']=$filename;
      */
     public function destroy(Category $Category)
     {
-        //
 
-//        if($Category->subCategory()->count() > 0)
-//        {
-//            return back()->with('warning','can not delete this cat because it has childs !');
-//        }
-//        else{
+
+
 
         if(isset($Category->image)&&File::exists('assets/images/categories/'.$Category->image))
         {
             unlink('assets/images/categories/'.$Category->image);
         }
             $Category->delete();
-            return back()->with('succces','this cat  delete successfully !');
+            return redirect()->route('Category.index')->with('success','Category  delete successfully !');
 //        }
 //        return redirect()->back();
     }

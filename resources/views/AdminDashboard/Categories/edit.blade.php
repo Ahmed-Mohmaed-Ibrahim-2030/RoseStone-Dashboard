@@ -48,21 +48,7 @@
                 <input type="text" class="form-control" id="exampleInputEmail1" name="name_ar" placeholder="" value="{{$Category->name_ar}}">
             </div>
 
-            {{--            <?php--}}
-{{--            $categories = \App\Models\Category::all();--}}
-{{--            ?>--}}
-{{--            @if($categories->count()>0)--}}
-{{--                <div class="form-group ml-3">--}}
-{{--                    <div>--}}
-{{--                        <label for="" class="form-label"> Category</label>--}}
-{{--                        <select class="form-select w-75 mb-3 form-control" name="category_id" aria-label=".form-select-lg example">--}}
-{{--                            @foreach($categories as $category)--}}
-{{--                                <option value="{{$category->id}}" {{$Category->category_id==$category->id?'selected':""}} >{{$category->name}}</option>--}}
-{{--                            @endforeach--}}
-{{--                        </select>--}}
-{{--                    </div>--}}
-{{--                </div>--}}
-{{--            @endif--}}
+
             <div class="form-group ml-3">
 
                 <label for="user_image" class="form-label">

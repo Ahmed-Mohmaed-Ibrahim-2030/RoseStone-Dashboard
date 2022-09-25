@@ -247,7 +247,7 @@ class AdminController extends Controller
         }
 
  if(   $admin->delete())
- {    Mail::to($admin->email)->send(new NotifyMail(['title'=>'Your Rose Stone Account Deleted ','subject'=>'Sorry You Left Us']));
+ {    Mail::to($admin->email)->send(new NotifyMail(['title'=>'Your Rose Stone Account Deleted ','body'=>['subject'=>'Sorry You Left Us']]));
 
 if(Auth::id()===$admin->id) {
     return redirect()->route('logout');

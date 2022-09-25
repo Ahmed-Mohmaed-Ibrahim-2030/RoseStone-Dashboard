@@ -78,15 +78,7 @@ class AdminController extends Controller
             'password' => ['required', 'confirmed', Rules\Password::defaults()],
         ]);
 
-////        $request_data=$request->except('password','password_confirmation','permissions');
-//        if($request->hasFile('image')){
-//            $imageName = time().'.'.$request->image->extension();
-////            $removedPhotoPath = public_path("assets/dist/img/user-images/{$user->image}");
-////            \App\Http\Services\Media::delete($removedPhotoPath);
-//            $request->image->move(public_path('assets/dist/img/user-images/'), $imageName);
-////            $request_data['image']=$imageName;
-//
-//        }
+
         if($image=$request->file('image')){
             $filename = Str::slug(time().rand(1000,9999)).".".$image->getClientOriginalExtension();
             $path=public_path('/assets/images/users/admins/'.$filename);
@@ -217,28 +209,7 @@ class AdminController extends Controller
         }
     }
 
-    /**
-     * Remove the specified resource from storage.
-     *
-     * @param  int  $id
-     * @return \Illuminate\Http\Response
-     */
-//    public function destroy(User $admin)
-//    {
-//
-//        dd($admin->admin);
-//        //
-////dd(User::find($admin)->admin);
-////        dd($admin->admin);
-//        //why we have to delete admin before user  ?
-////because the admin take a forgein key from user
-//        $admin->admin->delete();
-//        $admin->delete();
-////return  redirect()->route('admins.index');
-////        return redirect()->action('AdminController@index');
-//        return redirect()->back();
-//
-//    }
+
     public function destroy(User $admin){
 //        dd($admin);
         if(File::exists('assets/images/users/admins/'.$admin->image))

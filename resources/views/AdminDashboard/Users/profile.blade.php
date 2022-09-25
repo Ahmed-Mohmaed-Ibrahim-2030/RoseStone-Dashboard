@@ -65,7 +65,7 @@
                     <button type="submit"  class="btn btn-outline-danger " {{Auth::user()->hasPermission('users-delete')?'':'disabled'}}><i class="fa fa-trash"></i>Delete</button>
             </form>
             @endif
-            <a href="{{route('edit-reset',['admin'=>$user->id])}}" class="btn delete btn-outline-secondary">reset password</a>
+            <a href="{{route('edit-reset',['admin'=>$user->id])}}" class="btn  btn-outline-secondary">reset password</a>
             <!-- /.row -->
         </div>
     </div>

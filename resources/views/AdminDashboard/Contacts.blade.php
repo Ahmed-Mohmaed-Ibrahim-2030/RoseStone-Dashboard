@@ -44,9 +44,9 @@
                     <thead>
                     <tr>
                         <th style="width: 10px">#</th>
-                        <th>Subject</th>
-                        <th>Eamil</th>
                         <th>Sender</th>
+                        <th>Eamil</th>
+{{--                        <th>Sender</th>--}}
 
                         <th>Action</th>
 {{--                        <th style="width: 40px">Action</th>--}}
@@ -59,10 +59,10 @@
                             <td>{{$i+1}}</td>
                             <td>
                                 <a href="{{route('contact.show',$contact->id)}}">
-                                    {{$contact->subject}}</a></td>
+                                    {{$contact->name}}</a></td>
 
                             <td>{{$contact->email}}</td>
-                            <td>{{$contact->name}}</td>
+{{--                            <td>{{$contact->name}}</td>--}}
 
                             <td>
 

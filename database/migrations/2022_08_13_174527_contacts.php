@@ -21,9 +21,9 @@ return new class extends Migration
 
             $table->string('email');
 
-            $table->string('phone')->nullable(true); 
-
-            $table->string('subject');
+//            $table->string('phone')->nullable(true);
+//
+//            $table->string('subject');
 
             $table->text('message');
 

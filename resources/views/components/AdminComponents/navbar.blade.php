@@ -118,7 +118,7 @@
                             </div>
                         </div>
                         <div class="row text-end ">
-                            <div class="col text-center"> <a href="{{route('contact.show',$notification->data['contact_id'])}}">{{$notification->data['subject']}}</a></div>
+                            <div class="col text-center"> <a href="{{route('contact.show',$notification->data['contact_id'])}}">show</a></div>
                         </div>
                         <div class="row text-center">
                             <small class="col text-center text-warning">{{$notification->created_at}}</small>

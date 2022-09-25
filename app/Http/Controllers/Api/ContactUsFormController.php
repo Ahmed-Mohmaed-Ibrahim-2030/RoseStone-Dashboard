@@ -25,8 +25,8 @@ class ContactUsFormController extends Controller
         $this->validate($request, [
             'name' => 'required',
             'email' => 'required|email',
-            'phone' => 'required|regex:/^([0-9\s\-\+\(\)]*)$/|min:10',
-            'subject'=>'required',
+//            'phone' => 'required|regex:/^([0-9\s\-\+\(\)]*)$/|min:10',
+//            'subject'=>'required',
             'message' => 'required'
             ]);
             // dd($request->all());
@@ -45,16 +45,16 @@ class ContactUsFormController extends Controller
         // });
         // return back()->with('success', 'We have received your message and would like to thank you for writing to us.');
 $name=$request->name;
-$phone=$request->phone;
+//$phone=$request->phone;
 $email=$request->email;
 $message=$request->message;
-$subject=$request->subject;
+//$subject=$request->subject;
         $mailData=[
     'title'=>"Message From $name ",
     'body'=>[
-        'subject'=>$subject,
+
         'Email'=>$email ,
-        'Phone'=>$phone ,
+//        'Phone'=>$phone ,
         'Message'=>$message ,
 
     ]];

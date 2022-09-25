@@ -33,7 +33,7 @@ class NotifyMail extends Mailable
     {
         //sdassnaabmbelsao
         return $this->from('rosestonespporttm@gmail.com', 'Rose Stone Support Team ')
-//            ->subject('Admin Authentication')
+            ->subject('Rose Stone')
             ->view('Mails.adminInfo');
     }
 }

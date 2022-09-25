@@ -18,7 +18,7 @@ class BlogController extends Controller
         //
         return response()->json([
             'status'=>'success',
-            'data' => Blog::with(['category:id,name_en'])->select('title_en','category_id','body_en','type')->orderBy('id','desc')->first()
+            'data' => Blog::with(['category:id,name_en'])->select('title_en','category_id','body_en','type')->orderBy('id','desc')->get()
         ],200);
     }
 
